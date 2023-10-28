@@ -1,0 +1,22 @@
+[GLOBAL]
+pants_version = "2.18.0a0"
+plugins = [
+    "pants_cargo_porcelain @ git+https://github.com/tgolsson/pants-cargo-porcelain@249dabd42839c7f3d1c4cd35aa4153fd5411e545#egg=pants_cargo_porcelain&subdirectory=pants-plugins/cargo-porcelain",
+]
+
+backend_packages = [
+    "pants.backend.tools.taplo",
+    "pants_cargo_porcelain",
+    "pants_cargo_porcelain.backends.clippy",
+]
+
+pants_ignore = [".*/", "/dist/", "__pycache__", "**/target/"]
+
+[anonymous-telemetry]
+enabled = false
+
+[rustup]
+rust_version = "1.72.1"
+
+[clippy]
+args = ["--", "-Dwarnings"]
